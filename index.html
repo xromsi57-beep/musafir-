@@ -536,16 +536,16 @@
     <!-- Hero Header with your new image background -->
     <div class="hero-header">
         <div class="hero-top-info">
-            <span>Riverside 35, Himachal Pradesh</span>
-            <span>📞 +91 70141 94339</span>
+            <span>Riverside 35, Himachal Pradesh[cite: 7]</span>
+            <span>📞 +91 70141 94339[cite: 7]</span>
         </div>
         <div class="hero-brand-container">
             <h1>Musafir Cafe</h1>
-            <p>An Unusual Love Story</p>
+            <p>An Unusual Love Story[cite: 6]</p>
         </div>
         <div class="hero-bottom-info">
-            <span>Open Daily</span>
-            <span>Reserve Table</span>
+            <span>Open Daily[cite: 7]</span>
+            <span>Reserve Table[cite: 7]</span>
         </div>
     </div>
 
@@ -625,19 +625,19 @@
             </div>
 
             <div class="form-group">
-                <label>Transaction ID / UTR Number *</label>
+                <label>Transaction ID / UTR Number (Ya Screenshot Upload Karein)</label>
                 <input type="text" id="paymentRef" placeholder="UPI Reference / Transaction ID">
             </div>
 
             <div class="form-group">
-                <label>Payment Screenshot (Optional)</label>
+                <label>Payment Screenshot (Ya UTR Number Bharein)</label>
                 <input type="file" accept="image/*" id="paymentProofInput" style="padding: 5px; font-size: 11px;">
             </div>
 
             <div class="form-group">
-                <label>Table Number ya Address</label>
-                <textarea id="customerAddress" rows="2" placeholder="Jaise: Table No. 4 ya Address"></textarea>
-                <button class="location-btn" onclick="getLocation()"><i class="fas fa-map-marker-alt"></i> Share Live Location</button>
+                <label>Table Number ya Address (Optional)</label>
+                <textarea id="customerAddress" rows="2" placeholder="Jaise: Table No. 4 ya Address (Optional)"></textarea>
+                <button class="location-btn" onclick="getLocation()"><i class="fas fa-map-marker-alt"></i> Share Live Location (Optional)</button>
                 <span id="locStatus" style="font-size: 11px; color: #25D366; margin-left: 6px; font-weight: 600;"></span>
             </div>
 
@@ -646,7 +646,7 @@
     </div>
 
     <script>
-        const cafePhone = "917014194339"; 
+        const cafePhone = "917014194339";[cite: 7]
 
         const menuData = {
             "Chai (Tea)": [
@@ -900,19 +900,22 @@
                 alert("Kripya apna mobile number darj karein!");
                 return;
             }
-            if (!paymentRef) {
-                alert("Kripya payment karne ke baad Transaction ID / UTR Number darj karein!");
+            
+            // Validation: UTR ya Screenshot me se koi ek hona zaroori hai
+            const hasFile = proofInput.files && proofInput.files.length > 0;
+            if (!paymentRef && !hasFile) {
+                alert("Kripya ya toh Transaction ID / UTR Number bharein ya Payment Screenshot upload karein!");
                 return;
             }
 
             let orderText = `*Paid Order - Musafir Cafe*%0A%0A`;
             orderText += `👤 *Name:* ${name}%0A`;
             orderText += `📱 *Phone Number:* ${phone}%0A`;
-            orderText += `💳 *Transaction ID/UTR:* ${paymentRef}%0A`;
-            if (proofInput.files && proofInput.files[0]) {
+            orderText += `💳 *Transaction ID/UTR:* ${paymentRef || 'Not Provided'}%0A`;
+            if (hasFile) {
                 orderText += `🖼️ *Payment Screenshot:* [Attached/Selected by Customer]%0A`;
             }
-            orderText += `📍 *Address/Table:* ${address || 'Not Provided'}%0A`;
+            orderText += `📍 *Address/Table:* ${address || 'Not Provided (Optional)'}%0A`;
             if (userLocationCoords) {
                 orderText += `🗺️ *Location Map:* ${userLocationCoords}%0A`;
             }
