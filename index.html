@@ -6,20 +6,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UPSC Chaiwala - Cafe Menu & Order</title>
-    <meta name="monetag" content="6bd437ed8be01633bf0c07e76f33979d">
-     <ins style="width: 300px;height:250px" data-width="300" data-height="250" class="ncf3773abb8" data-domain="//data527.click" data-affquery="/5d980c1bb9e9ce6fa349/cf3773abb8/?placementName=advertica"><script src="//data527.click/js/responsive.js" async></script></ins>
+    
+    <ins style="width: 300px;height:250px" data-width="300" data-height="250" class="ncf3773abb8" data-domain="//data527.click" data-affquery="/5d980c1bb9e9ce6fa349/cf3773abb8/?placementName=advertica"><script src="//data527.click/js/responsive.js" async></script></ins>
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
             --primary: #D4AF37;        /* Luxury Gold */
             --secondary: #FFF8DC;      /* Cream Light */
             --accent: #1A1A1A;         /* Rich Dark Charcoal */
-            --bg-color: #121212;       /* Sleek Dark Mode Background */
-            --card-bg: #1E1E1E;        /* Card Background */
+            --card-bg: rgba(30, 30, 30, 0.85); /* Semi-transparent Glass Card */
             --text-light: #F5F5F5;     /* Light Text */
             --text-muted: #B0B0B0;     /* Muted Text */
-            --shadow: 0 8px 25px rgba(0,0,0,0.4);
+            --shadow: 0 8px 25px rgba(0,0,0,0.6);
         }
 
         * {
@@ -30,15 +31,18 @@
             scroll-behavior: smooth;
         }
 
+        /* Interactive Brick Wall & Neon Background */
         body {
-            background-color: var(--bg-color);
+            background: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.92)), url('ps28musafir3dxx.webp') no-repeat center center fixed;
+            background-size: cover;
             color: var(--text-light);
             padding-bottom: 140px;
+            min-height: 100vh;
         }
 
         header {
-            background: linear-gradient(135deg, #000000, #2C2C2C);
-            color: var(--white);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(44, 44, 44, 0.9));
+            backdrop-filter: blur(10px);
             text-align: center;
             padding: 25px 15px;
             box-shadow: var(--shadow);
@@ -52,7 +56,7 @@
             font-size: 32px;
             letter-spacing: 1.5px;
             color: var(--primary);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.6), 2px 2px 4px rgba(0,0,0,0.8);
             margin: 0;
         }
 
@@ -63,7 +67,7 @@
             padding: 12px;
             font-weight: 700;
             font-size: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.4);
         }
 
         .contact-banner a {
@@ -71,19 +75,20 @@
             text-decoration: underline;
         }
 
-        /* Category Filter Tabs */
+        /* Category Filter Tabs with Glassmorphism */
         .category-nav {
             display: flex;
             overflow-x: auto;
             gap: 10px;
             padding: 15px;
-            background: var(--card-bg);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             white-space: nowrap;
             position: sticky;
             top: 89px;
             z-index: 999;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .category-nav::-webkit-scrollbar {
@@ -91,14 +96,14 @@
         }
 
         .cat-tab {
-            background: #2C2C2C;
+            background: rgba(44, 44, 44, 0.8);
             color: var(--text-light);
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 13px;
             font-weight: 600;
             cursor: pointer;
-            border: 1px solid #444;
+            border: 1px solid rgba(255,255,255,0.15);
             transition: all 0.3s ease;
         }
 
@@ -108,6 +113,7 @@
             border-color: var(--primary);
             transform: scale(1.05);
             font-weight: 700;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
         }
 
         .container {
@@ -129,6 +135,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
         }
 
         .menu-grid {
@@ -137,21 +144,24 @@
             gap: 20px;
         }
 
+        /* Glassmorphism Menu Cards */
         .menu-card {
             background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-radius: 16px;
             overflow: hidden;
             box-shadow: var(--shadow);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .menu-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
             border-color: var(--primary);
         }
 
@@ -171,7 +181,7 @@
         }
 
         .menu-card:hover .item-img-container img {
-            transform: scale(1.1);
+            transform: scale(1.12);
         }
 
         .item-details {
@@ -207,11 +217,11 @@
         .size-select {
             padding: 8px;
             border-radius: 8px;
-            border: 1px solid #444;
+            border: 1px solid rgba(255,255,255,0.2);
             font-size: 12px;
             outline: none;
             flex: 1;
-            background: #2A2A2A;
+            background: rgba(42, 42, 42, 0.9);
             color: var(--text-light);
             font-weight: 500;
         }
@@ -225,7 +235,7 @@
             cursor: pointer;
             font-weight: 700;
             font-size: 13px;
-            transition: background 0.2s, transform 0.1s;
+            transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
         }
 
         .add-btn:active {
@@ -234,18 +244,20 @@
 
         .add-btn:hover {
             background-color: #FFF8DC;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
         }
 
-        /* Fixed Cart Bar with Item Management */
+        /* Fixed Cart Bar */
         .cart-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: #1A1A1A;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(15px);
             color: var(--text-light);
             padding: 12px 20px;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.6);
+            box-shadow: 0 -5px 25px rgba(0,0,0,0.8);
             z-index: 1001;
             border-top: 2px solid var(--primary);
             animation: slideUp 0.3s ease-out;
@@ -262,7 +274,7 @@
         .cart-items-preview {
             max-height: 100px;
             overflow-y: auto;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
             padding-bottom: 6px;
             display: flex;
             flex-direction: column;
@@ -274,7 +286,7 @@
             justify-content: space-between;
             align-items: center;
             font-size: 13px;
-            background: #252525;
+            background: rgba(37, 37, 37, 0.8);
             padding: 4px 8px;
             border-radius: 6px;
         }
@@ -351,16 +363,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.75);
+            background: rgba(0,0,0,0.85);
             z-index: 2000;
             justify-content: center;
             align-items: center;
             padding: 15px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(8px);
         }
 
         .modal-content {
-            background: var(--card-bg);
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(15px);
             color: var(--text-light);
             width: 100%;
             max-width: 500px;
@@ -382,7 +395,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
             padding-bottom: 12px;
             margin-bottom: 15px;
         }
@@ -404,9 +417,8 @@
             color: var(--text-light);
         }
 
-        /* Payment Section Styling inside Modal */
         .payment-box {
-            background: #252525;
+            background: rgba(37, 37, 37, 0.8);
             border: 1px dashed var(--primary);
             padding: 15px;
             border-radius: 12px;
@@ -418,17 +430,6 @@
             color: var(--primary);
             margin-bottom: 8px;
             font-size: 15px;
-        }
-
-        .qr-code-img {
-            width: 180px;
-            height: 180px;
-            object-fit: contain;
-            border-radius: 8px;
-            background: #fff;
-            padding: 5px;
-            margin: 8px auto;
-            display: block;
         }
 
         .form-group {
@@ -446,8 +447,8 @@
         .form-group input, .form-group textarea {
             width: 100%;
             padding: 12px;
-            border: 1px solid #444;
-            background: #2A2A2A;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(42, 42, 42, 0.8);
             color: var(--text-light);
             border-radius: 8px;
             font-size: 14px;
@@ -457,6 +458,7 @@
 
         .form-group input:focus, .form-group textarea:focus {
             border-color: var(--primary);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
         }
 
         .location-btn {
@@ -497,7 +499,6 @@
             background-color: #20ba5a;
         }
     </style>
-    <meta name="monetag" content="6bd437ed8be01633bf0c07e76f33979d">
 </head>
 <body>
 
@@ -510,19 +511,13 @@
     </div>
 
     <!-- Category Navigation Tabs -->
-    <div class="category-nav" id="categoryNav">
-        <!-- Generated via script -->
-    </div>
+    <div class="category-nav" id="categoryNav"></div>
 
-    <div class="container" id="menu-container">
-        <!-- Dynamic Menu Generated via Script -->
-    </div>
+    <div class="container" id="menu-container"></div>
 
-    <!-- Cart Bar with Direct Add/Remove/Plus/Minus controls -->
+    <!-- Cart Bar -->
     <div class="cart-bar" id="cartBar" style="display: none;">
-        <div class="cart-items-preview" id="cartItemsPreview">
-            <!-- Dynamic Cart Items list with +/- and Delete buttons -->
-        </div>
+        <div class="cart-items-preview" id="cartItemsPreview"></div>
         <div class="cart-footer-row">
             <div class="cart-info" id="cartSummaryText">0 Items | ₹0</div>
             <button class="checkout-btn" onclick="openCheckoutModal()">
@@ -539,29 +534,19 @@
                 <button class="close-btn" onclick="closeCheckoutModal()">×</button>
             </div>
 
-            <!-- Payment QR Code Section -->
             <div class="payment-box">
                 <h4>Scan & Pay via PhonePe / UPI</h4>
                 <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 5px;">Total Payable Amount scan karke pay karein</p>
                 
-                <!-- Aapki di gayi location ka path yahan set kar diya gaya hai -->
-             
+                <img alt="UPSC Chaiwala QR Code" src="scanner.jpeg" style="width: 180px; height: 180px; object-fit: contain; display: block; margin: 0 auto; background: #fff; padding: 5px; border-radius: 8px;">
+                
+                <div style="margin-top: 10px; text-align: center;">
+                    <a href="scanner.jpeg" download="UPSC_Chaiwala_Scanner.jpeg" style="display: inline-block; background-color: #4a3525; color: white; padding: 6px 14px; text-decoration: none; border-radius: 4px; font-size: 13px; font-weight: bold;">
+                        📥 Download QR Code
+                    </a>
+                </div>
             </div>
-<!-- Payment QR Code Section -->
-<div class="payment-box">
-    <h4>Scan & Pay via PhonePe / UPI</h4>
-    <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 5px;">Total Payable Amount scan karke pay karein</p>
-    
-    <!-- QR Code Image with proper size styling -->
-    <img alt="UPSC Chaiwala QR Code" src="scanner.jpeg" style="width: 180px; height: 180px; object-fit: contain; display: block; margin: 0 auto;">
-    
-    <!-- 👇 Naya Download / Save QR Button Yaha Jodein 👇 -->
-    <div style="margin-top: 10px; text-align: center;">
-        <a href="scanner.jpeg" download="UPSC_Chaiwala_Scanner.jpeg" style="display: inline-block; background-color: #4a3525; color: white; padding: 6px 14px; text-decoration: none; border-radius: 4px; font-size: 13px; font-weight: bold;">
-            📥 Download QR Code
-        </a>
-    </div>
-</div>
+
             <div class="form-group">
                 <label>Aapka Naam (Your Name) *</label>
                 <input type="text" id="customerName" placeholder="Apna naam likhiye">
