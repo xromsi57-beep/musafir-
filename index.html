@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #FF9F0A;        /* Neon Amber / Sunset Orange */
-            --primary-glow: rgba(255, 159, 10, 0.5);
-            --secondary: #00E5FF;      /* Cyber Cyan Accent */
-            --card-bg: rgba(20, 20, 30, 0.85);        /* Deep Glass Dark */
+            --primary: #FFD700;        /* Rich Gold */
+            --primary-glow: rgba(255, 215, 0, 0.4);
+            --secondary: #00FFCC;      /* Mint Cyan Accent */
+            --card-bg: rgba(10, 25, 18, 0.88);        /* Deep Forest Green Glass */
             --text-light: #FFFFFF;     
-            --text-muted: #A0A0B0;     
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            --text-muted: #B0C4DE;     
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
         }
 
         * {
@@ -27,9 +27,9 @@
             scroll-behavior: smooth;
         }
 
-        /* Ultimate Pro Background with GitHub Image & Neon Gradient */
+        /* Background with GitHub Image & Emerald Gradient Overlay */
         body {
-            background: linear-gradient(rgba(10, 10, 15, 0.82), rgba(15, 15, 22, 0.92)), url('https://xromsi57-beep.github.io/musafir-/ps28musafir3dxx.webp') no-repeat center center fixed !important;
+            background: linear-gradient(rgba(5, 20, 12, 0.85), rgba(10, 15, 20, 0.95)), url('https://xromsi57-beep.github.io/musafir-/ps28musafir3dxx.webp') no-repeat center center fixed !important;
             background-size: cover !important;
             color: var(--text-light);
             padding-bottom: 150px;
@@ -37,7 +37,7 @@
         }
 
         header {
-            background: linear-gradient(135deg, rgba(15, 15, 22, 0.95), rgba(30, 30, 45, 0.95));
+            background: linear-gradient(135deg, rgba(8, 25, 18, 0.95), rgba(15, 35, 25, 0.95));
             backdrop-filter: blur(15px);
             text-align: center;
             padding: 20px 15px;
@@ -58,14 +58,14 @@
         }
 
         .contact-banner {
-            background: linear-gradient(90deg, #FF9F0A, #FF5722);
+            background: linear-gradient(90deg, #FFD700, #FFA500);
             color: #000000;
             text-align: center;
             padding: 10px;
             font-weight: 800;
             font-size: 14px;
             letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(255, 159, 10, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
         }
 
         .contact-banner a {
@@ -73,13 +73,13 @@
             text-decoration: underline;
         }
 
-        /* Interactive Category Navigation Tabs */
+        /* Category Navigation Tabs */
         .category-nav {
             display: flex;
             overflow-x: auto;
             gap: 12px;
             padding: 15px;
-            background: rgba(18, 18, 28, 0.9);
+            background: rgba(10, 25, 18, 0.9);
             backdrop-filter: blur(12px);
             box-shadow: 0 5px 20px rgba(0,0,0,0.5);
             white-space: nowrap;
@@ -94,14 +94,14 @@
         }
 
         .cat-tab {
-            background: rgba(35, 35, 50, 0.8);
+            background: rgba(20, 45, 32, 0.8);
             color: var(--text-light);
             padding: 9px 18px;
             border-radius: 25px;
             font-size: 13px;
             font-weight: 600;
             cursor: pointer;
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,215,0,0.2);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -142,7 +142,7 @@
             gap: 22px;
         }
 
-        /* Glassmorphism Menu Cards with Glowing Hover */
+        /* Menu Cards with Forest Green Glass & Gold Hover */
         .menu-card {
             background: var(--card-bg);
             backdrop-filter: blur(15px);
@@ -154,12 +154,12 @@
             flex-direction: column;
             justify-content: space-between;
             transition: all 0.35s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.15);
         }
 
         .menu-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(255, 159, 10, 0.25);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.25);
             border-color: var(--primary);
         }
 
@@ -167,7 +167,7 @@
             width: 100%;
             height: 165px;
             overflow: hidden;
-            background: #1a1a24;
+            background: #081a12;
             position: relative;
         }
 
@@ -202,7 +202,7 @@
             color: var(--primary);
             font-weight: 800;
             margin-bottom: 12px;
-            text-shadow: 0 0 8px rgba(255, 159, 10, 0.3);
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
         }
 
         .item-actions {
@@ -216,11 +216,11 @@
         .size-select {
             padding: 8px;
             border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,215,0,0.3);
             font-size: 12px;
             outline: none;
             flex: 1;
-            background: rgba(30, 30, 45, 0.9);
+            background: rgba(15, 35, 25, 0.9);
             color: var(--text-light);
             font-weight: 600;
             cursor: pointer;
@@ -231,7 +231,7 @@
         }
 
         .add-btn {
-            background: linear-gradient(135deg, var(--primary), #FF5722);
+            background: linear-gradient(135deg, var(--primary), #FFA500);
             color: #000000;
             border: none;
             padding: 9px 18px;
@@ -240,7 +240,7 @@
             font-weight: 800;
             font-size: 13px;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 15px rgba(255, 159, 10, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
         }
 
         .add-btn:active {
@@ -253,13 +253,13 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
         }
 
-        /* Fixed Cart Bar with Glow */
+        /* Fixed Cart Bar */
         .cart-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(15, 15, 22, 0.95);
+            background: rgba(8, 25, 18, 0.95);
             backdrop-filter: blur(20px);
             color: var(--text-light);
             padding: 14px 20px;
@@ -292,10 +292,10 @@
             justify-content: space-between;
             align-items: center;
             font-size: 13px;
-            background: rgba(30, 30, 45, 0.8);
+            background: rgba(20, 45, 32, 0.8);
             padding: 6px 10px;
             border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,215,0,0.1);
         }
 
         .mini-controls {
@@ -305,7 +305,7 @@
         }
 
         .mini-qty-btn {
-            background: #333348;
+            background: #143222;
             color: #fff;
             border: none;
             width: 22px;
@@ -325,7 +325,7 @@
         .mini-del-btn {
             background: none;
             border: none;
-            color: #ff5252;
+            color: #ff6b6b;
             cursor: pointer;
             font-size: 13px;
             margin-left: 6px;
@@ -341,7 +341,7 @@
             font-size: 15px;
             font-weight: 700;
             color: var(--secondary);
-            text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
         }
 
         .checkout-btn {
@@ -388,7 +388,7 @@
         }
 
         .modal-content {
-            background: rgba(20, 20, 30, 0.95);
+            background: rgba(10, 25, 18, 0.95);
             backdrop-filter: blur(20px);
             color: var(--text-light);
             width: 100%;
@@ -435,7 +435,7 @@
         }
 
         .payment-box {
-            background: rgba(30, 30, 45, 0.8);
+            background: rgba(20, 45, 32, 0.8);
             border: 1px dashed var(--primary);
             padding: 15px;
             border-radius: 14px;
@@ -464,8 +464,8 @@
         .form-group input, .form-group textarea {
             width: 100%;
             padding: 12px;
-            border: 1px solid rgba(255,255,255,0.2);
-            background: rgba(30, 30, 45, 0.9);
+            border: 1px solid rgba(255,215,0,0.3);
+            background: rgba(15, 35, 25, 0.9);
             color: var(--text-light);
             border-radius: 10px;
             font-size: 14px;
