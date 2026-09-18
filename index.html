@@ -10,12 +10,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2C3E50;        /* Classy Dark Slate */
-            --accent: #C5A059;         /* Luxury Gold/Bronze Accent */
-            --bg-light: #F8F9FA;       /* Clean White/Off-white Section */
+            --primary: #2C3E50;
+            --accent: #C5A059;
+            --bg-light: #F8F9FA;
             --text-dark: #222222;
             --text-muted: #666666;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
         * {
@@ -32,12 +31,12 @@
             padding-bottom: 140px;
         }
 
-        /* --- TAVERNA STYLE HERO HEADER --- */
+        /* --- TAVERNA HERO HEADER WITH YOUR BACKGROUND IMAGE --- */
         .hero-header {
             position: relative;
             width: 100%;
             height: 420px;
-            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('ps28musafir3dxx_2.webp') no-repeat center center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('ps28musafir3dxx_2.webp') no-repeat center center;
             background-size: cover;
             display: flex;
             flex-direction: column;
@@ -70,7 +69,7 @@
             text-transform: uppercase;
             color: #ffffff;
             margin-bottom: 5px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
         }
 
         .hero-brand-container p {
@@ -80,6 +79,7 @@
             color: var(--accent);
             text-transform: uppercase;
             font-weight: 600;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
         }
 
         .hero-bottom-info {
@@ -90,7 +90,7 @@
             font-weight: 500;
         }
 
-        /* --- WELCOME & ROUND NAV SECTION (AS REQUESTED) --- */
+        /* --- WELCOME & ROUND NAV SECTION --- */
         .welcome-section {
             background: #ffffff;
             padding: 50px 20px 30px 20px;
@@ -520,7 +520,6 @@
             margin-top: 10px;
         }
 
-        /* Responsive Design */
         @media(max-width: 768px) {
             .hero-header { height: 350px; padding: 20px; }
             .hero-brand-container h1 { font-size: 30px; letter-spacing: 2px; }
@@ -532,7 +531,7 @@
 </head>
 <body>
 
-    <!-- Taverna Style Hero Header -->
+    <!-- Hero Header with your background image -->
     <div class="hero-header">
         <div class="hero-top-info">
             <span>Riverside 35, Himachal Pradesh</span>
@@ -904,7 +903,7 @@
                 return;
             }
 
-            let orderText = `*Paid Order - Musafir Cafe (Taverna Look)*%0A%0A`;
+            let orderText = `*Paid Order - Musafir Cafe*%0A%0A`;
             orderText += `👤 *Name:* ${name}%0A`;
             orderText += `📱 *Phone Number:* ${phone}%0A`;
             orderText += `💳 *Transaction ID/UTR:* ${paymentRef}%0A`;
