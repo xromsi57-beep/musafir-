@@ -12,9 +12,14 @@
         }
 
         body {
-            background: linear-gradient(135deg, #7a7a7a, #4a4a4a);
+            background-color: #2b2b2b;
             color: #ffffff;
             font-family: Arial, sans-serif;
+        }
+
+        /* Hero / Top Section */
+        .hero-section {
+            background: linear-gradient(135deg, #7a7a7a, #4a4a4a);
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -59,26 +64,112 @@
             align-items: flex-end;
             font-size: 14px;
         }
+
+        /* Products Section */
+        .products-section {
+            padding: 50px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .products-section h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #f1c40f;
+            letter-spacing: 2px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: #3a3a3a;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            text-align: center;
+            padding-bottom: 15px;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            font-size: 20px;
+            margin: 15px 0 5px;
+        }
+
+        .product-card p {
+            color: #b0b0b0;
+            font-size: 14px;
+            padding: 0 10px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #2ecc71;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Top Section -->
-    <div class="top-bar">
-        <div>RIVERSIDE 35, JAIPUR</div>
-        <div class="phone">📞 +91 9256466573</div>
+    <!-- Hero Section (Original Design Maintained) -->
+    <div class="hero-section">
+        <div class="top-bar">
+            <div>RIVERSIDE 35, JAIPUR[cite: 1]</div>
+            <div class="phone">📞 +91 9256466573[cite: 1]</div>
+        </div>
+
+        <div class="center-content">
+            <h1>MUSAFIR CAFE</h1>
+            <p>AN UNUSUAL LOVE STORY[cite: 1]</p>
+        </div>
+
+        <div class="bottom-bar">
+            <div>महँगी सी इस दुनिया में, सुकून का एक सस्ता सा पता[cite: 1]</div>
+            <div>Mr. Prmod Saini[cite: 1]</div>
+        </div>
     </div>
 
-    <!-- Center Section -->
-    <div class="center-content">
-        <h1>MUSAFIR CAFE</h1>
-        <p>AN UNUSUAL LOVE STORY</p>
-    </div>
+    <!-- Products / Menu Section -->
+    <div class="products-section">
+        <h2>Our Special Menu</h2>
+        <div class="product-grid">
+            
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947" alt="Coffee">
+                <h3>Special Hot Coffee</h3>
+                <p>Rich and creamy coffee to kickstart your conversations.</p>
+                <div class="price">₹120</div>
+            </div>
 
-    <!-- Bottom Section -->
-    <div class="bottom-bar">
-        <div>महँगी सी इस दुनिया में, सुकून का एक सस्ता सा पता</div>
-        <div>Mr. Prmod Saini</div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="Burger">
+                <h3>Musafir Special Burger</h3>
+                <p>Juicy patty loaded with fresh veggies and cheese.</p>
+                <div class="price">₹199</div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591" alt="Pizza">
+                <h3>Cheese Burst Pizza</h3>
+                <p>Loaded with extra mozzarella cheese and rich toppings.</p>
+                <div class="price">₹299</div>
+            </div>
+
+        </div>
     </div>
 
 </body>
