@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta name="ppck-ver" content="e97ed8b439878caa17bcea16dc646ee3" />
-    <meta name="monetag" content="6bd437ed8be01633bf0c07e76f33979d">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Musafir Cafe - Restaurant Menu</title>
@@ -31,12 +29,11 @@
             padding-bottom: 140px;
         }
 
-        /* --- HERO HEADER --- */
         .hero-header {
             position: relative;
             width: 100%;
             height: 450px;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('cafe.jpg') no-repeat center center;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1000&auto=format&fit=crop&q=60') no-repeat center center;
             background-size: cover;
             display: flex;
             flex-direction: column;
@@ -92,7 +89,6 @@
             text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
         }
 
-        /* --- WELCOME & ROUND NAV SECTION --- */
         .welcome-section {
             background: #ffffff;
             padding: 50px 20px 30px 20px;
@@ -163,7 +159,6 @@
             color: var(--text-muted);
         }
 
-        /* --- CATEGORY NAVIGATION TABS --- */
         .category-nav {
             display: flex;
             overflow-x: auto;
@@ -200,7 +195,6 @@
             border-color: var(--primary);
         }
 
-        /* --- MENU CONTAINER & GRID --- */
         .container {
             max-width: 1150px;
             margin: 30px auto;
@@ -321,7 +315,6 @@
             color: #000;
         }
 
-        /* --- FIXED CART BAR --- */
         .cart-bar {
             position: fixed;
             bottom: 0;
@@ -413,7 +406,6 @@
             transform: scale(1.03);
         }
 
-        /* --- MODAL --- */
         .modal {
             display: none;
             position: fixed;
@@ -521,19 +513,10 @@
             cursor: pointer;
             margin-top: 10px;
         }
-
-        @media(max-width: 768px) {
-            .hero-header { height: 380px; padding: 20px; }
-            .hero-brand-container h1 { font-size: 32px; letter-spacing: 2px; }
-            .hero-top-info, .hero-bottom-info { font-size: 11px; }
-            .quick-nav-circles { gap: 20px; }
-            .circle-img { width: 75px; height: 75px; }
-        }
     </style>
 </head>
 <body>
 
-    <!-- Hero Header with updated text -->
     <div class="hero-header">
         <div class="hero-top-info">
             <span>RIVERSIDE 35, JAIPUR</span>
@@ -549,7 +532,6 @@
         </div>
     </div>
 
-    <!-- Welcome & Quick Navigation Circles Section -->
     <div class="welcome-section">
         <h2>Welcome to Musafir Cafe</h2>
         <p>Experience the finest blend of nature, authentic taste, and cozy mountainous vibes. Explore our delicious menu items below.</p>
@@ -557,7 +539,7 @@
         <div class="quick-nav-circles">
             <div class="nav-circle-item" onclick="scrollToFirstCat()">
                 <div class="circle-img">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&auto=format&fit=crop&q=60" alt="About">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=200&auto=format&fit=crop&q=60" alt="About">
                 </div>
                 <div class="circle-title">About Us</div>
                 <div class="circle-sub">Daily news of the taste world</div>
@@ -571,7 +553,7 @@
             </div>
             <div class="nav-circle-item" onclick="openCheckoutModal()">
                 <div class="circle-img">
-                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=200&auto=format&fit=crop&q=60" alt="Locate">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&auto=format&fit=crop&q=60" alt="Locate">
                 </div>
                 <div class="circle-title">Locate Us</div>
                 <div class="circle-sub">Daily news of the taste world</div>
@@ -579,12 +561,10 @@
         </div>
     </div>
 
-    <!-- Category Navigation Tabs -->
     <div class="category-nav" id="categoryNav"></div>
 
     <div class="container" id="menu-container"></div>
 
-    <!-- Cart Bar -->
     <div class="cart-bar" id="cartBar" style="display: none;">
         <div class="cart-items-preview" id="cartItemsPreview"></div>
         <div class="cart-footer-row">
@@ -595,7 +575,6 @@
         </div>
     </div>
 
-    <!-- Modal -->
     <div class="modal" id="checkoutModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -653,7 +632,7 @@
                 {name: "Chai", price: 10, img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=500&auto=format&fit=crop&q=60"},
                 {name: "Kanch Kulhad Chai", price: 15, img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=500&auto=format&fit=crop&q=60"},
                 {name: "Mittri Kulhad Chai", price: 20, img: "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=500&auto=format&fit=crop&q=60"},
-                {name: "Lemon Tea", price: 20, img: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500&auto=format&fit=crop&q=60"}
+                {name: "Lemon Tea", price: 20, img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&auto=format&fit=crop&q=60"}
             ],
             "Coffee": [
                 {name: "Hot Coffee", price: 25, img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&auto=format&fit=crop&q=60"},
@@ -669,10 +648,10 @@
                 {name: "Mix Juice", sizes: {"Small": 50, "Medium": 60, "Large": 70}, img: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=500&auto=format&fit=crop&q=60"}
             ],
             "Shake": [
-                {name: "Papaya Shake", sizes: {"Small": 60, "Medium": 70, "Large": 80}, img: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=500&auto=format&fit=crop&q=60"},
+                {name: "Papaya Shake", sizes: {"Small": 60, "Medium": 70, "Large": 80}, img: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=500&auto=format&fit=crop&q=60"},
                 {name: "Mango Shake", sizes: {"Small": 60, "Medium": 70, "Large": 80}, img: "https://images.unsplash.com/photo-1541658016709-82535e94bc69?w=500&auto=format&fit=crop&q=60"},
-                {name: "Banana Shake", sizes: {"Small": 60, "Medium": 70, "Large": 80}, img: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=500&auto=format&fit=crop&q=60"},
-                {name: "Mix Shake", sizes: {"Small": 70, "Medium": 80, "Large": 90}, img: "https://images.unsplash.com/photo-1577805947697-89e18249d767?w=500&auto=format&fit=crop&q=60"}
+                {name: "Banana Shake", sizes: {"Small": 60, "Medium": 70, "Large": 80}, img: "https://images.unsplash.com/photo-1577805947697-89e18249d767?w=500&auto=format&fit=crop&q=60"},
+                {name: "Mix Shake", sizes: {"Small": 70, "Medium": 80, "Large": 90}, img: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=500&auto=format&fit=crop&q=60"}
             ],
             "Burger & Meggie": [
                 {name: "Burger", price: 50, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&auto=format&fit=crop&q=60"},
@@ -681,8 +660,8 @@
                 {name: "Simple Meggie", price: 30, img: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=500&auto=format&fit=crop&q=60"},
                 {name: "Veg Meggie", price: 50, img: "https://images.unsplash.com/photo-1608897013039-887f21d8c804?w=500&auto=format&fit=crop&q=60"},
                 {name: "Cheese Meggie", price: 60, img: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=500&auto=format&fit=crop&q=60"},
-                {name: "Paneer Meggie", price: 70, img: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=500&auto=format&fit=crop&q=60"},
-                {name: "Special Meggie", price: 80, img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500&auto=format&fit=crop&q=60"}
+                {name: "Paneer Meggie", price: 70, img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500&auto=format&fit=crop&q=60"},
+                {name: "Special Meggie", price: 80, img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&auto=format&fit=crop&q=60"}
             ],
             "Paties & Sandwich": [
                 {name: "Simple Paties", price: 20, img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&auto=format&fit=crop&q=60"},
