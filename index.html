@@ -1,918 +1,696 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Musafir Cafe - Restaurant Menu</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #2C3E50;
-            --accent: #C5A059;
-            --bg-light: #F8F9FA;
-            --text-dark: #222222;
-            --text-muted: #666666;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>91 Club — Gaming Portal & Demo</title>
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --surface: #131a2a;
+      --surface-2: #1b253b;
+      --text: #f3f6fc;
+      --muted: #9aa7bf;
+      --accent: #f59e0b;
+      --accent-hover: #d97706;
+      --green: #10b981;
+      --red: #ef4444;
+      --violet: #8b5cf6;
+      --border: rgba(255, 255, 255, 0.08);
+      --radius: 14px;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            padding-bottom: 140px;
-        }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-        .hero-header {
-            position: relative;
-            width: 100%;
-            height: 450px;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1000&auto=format&fit=crop&q=60') no-repeat center center;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 25px 40px;
-            color: #ffffff;
-            border-bottom: 4px solid var(--accent);
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .hero-top-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
-        }
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-        .hero-brand-container {
-            text-align: center;
-            margin: auto;
-        }
+    /* Notice Banner */
+    .demo-banner {
+      background: rgba(245, 158, 11, 0.14);
+      border-bottom: 1px solid rgba(245, 158, 11, 0.35);
+      color: #fde68a;
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 8px 14px;
+    }
 
-        .hero-brand-container h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #ffffff;
-            margin-bottom: 5px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.9);
-        }
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11, 15, 25, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
 
-        .hero-brand-container p {
-            font-family: 'Playfair Display', serif;
-            font-size: 16px;
-            letter-spacing: 3px;
-            color: #ffeb3b;
-            text-transform: uppercase;
-            font-weight: 600;
-            text-shadow: 1px 1px 6px rgba(0,0,0,0.9);
-        }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 16px;
+    }
 
-        .hero-bottom-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            font-size: 13px;
-            font-weight: 600;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: 0.4px;
+    }
 
-        .welcome-section {
-            background: #ffffff;
-            padding: 50px 20px 30px 20px;
-            text-align: center;
-            border-bottom: 1px solid #eaeaea;
-        }
+    .brand-badge {
+      background: linear-gradient(135deg, var(--accent), #f97316);
+      color: #0b0f19;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
 
-        .welcome-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
 
-        .welcome-section p {
-            font-size: 14px;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 35px auto;
-            line-height: 1.6;
-        }
+    .nav-links a:hover {
+      color: var(--text);
+    }
 
-        .quick-nav-circles {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
 
-        .nav-circle-item {
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
+    .btn {
+      border: none;
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: transform 0.12s ease, background 0.15s ease;
+    }
 
-        .nav-circle-item:hover {
-            transform: translateY(-5px);
-        }
+    .btn:active {
+      transform: scale(0.98);
+    }
 
-        .circle-img {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 0 auto 12px auto;
-            border: 3px solid var(--accent);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+    .btn-ghost {
+      background: var(--surface-2);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
 
-        .circle-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    .btn-ghost:hover {
+      background: #24314e;
+    }
 
-        .circle-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 3px;
-        }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #f97316);
+      color: #0b0f19;
+    }
 
-        .circle-sub {
-            font-size: 11px;
-            color: var(--text-muted);
-        }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--accent-hover), #ea580c);
+    }
 
-        .category-nav {
-            display: flex;
-            overflow-x: auto;
-            gap: 12px;
-            padding: 15px 20px;
-            background: #ffffff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            white-space: nowrap;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            border-bottom: 1px solid #ddd;
-        }
+    /* Hero */
+    .hero {
+      padding: 56px 0 40px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
 
-        .category-nav::-webkit-scrollbar {
-            display: none;
-        }
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
 
-        .cat-tab {
-            background: #f1f2f6;
-            color: var(--text-dark);
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            border: 1px solid #dcdde1;
-            transition: all 0.2s ease;
-        }
+    .hero h1 span {
+      color: var(--accent);
+    }
 
-        .cat-tab.active, .cat-tab:hover {
-            background: var(--primary);
-            color: #ffffff;
-            border-color: var(--primary);
-        }
+    .hero p {
+      color: var(--muted);
+      font-size: 1.02rem;
+      margin-bottom: 24px;
+      max-width: 58ch;
+    }
 
-        .container {
-            max-width: 1150px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
 
-        .category-section {
-            margin-bottom: 45px;
-        }
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
 
-        .category-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            color: var(--primary);
-            margin-bottom: 20px;
-            border-left: 4px solid var(--accent);
-            padding-left: 12px;
-            font-weight: 700;
-        }
+    .stats-row strong {
+      color: var(--text);
+      display: block;
+      font-size: 1.1rem;
+    }
 
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 22px;
-        }
+    /* Demo Round Box */
+    .round-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
 
-        .menu-card {
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #eee;
-        }
+    .round-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
 
-        .menu-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-        }
+    .timer-pill {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      color: var(--accent);
+    }
 
-        .item-img-container {
-            width: 100%;
-            height: 165px;
-            overflow: hidden;
-            background: #eee;
-        }
+    .color-picks {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 14px 0;
+    }
 
-        .item-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
+    .pick-btn {
+      padding: 12px 8px;
+      border-radius: 10px;
+      border: 2px solid transparent;
+      font-weight: 700;
+      color: #fff;
+      cursor: pointer;
+    }
 
-        .menu-card:hover .item-img-container img {
-            transform: scale(1.08);
-        }
+    .pick-green { background: var(--green); }
+    .pick-violet { background: var(--violet); }
+    .pick-red { background: var(--red); }
 
-        .item-details {
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            justify-content: space-between;
-        }
+    .pick-btn.selected {
+      border-color: #fff;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
+    }
 
-        .item-info h3 {
-            font-size: 16px;
-            color: var(--text-dark);
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
+    .stake-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
 
-        .item-price {
-            font-size: 17px;
-            color: var(--accent);
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
+    .stake-chip {
+      flex: 1;
+      background: var(--surface-2);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
 
-        .item-actions {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            margin-top: auto;
-        }
+    .stake-chip.active {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
 
-        .size-select {
-            padding: 7px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 12px;
-            outline: none;
-            flex: 1;
-            background: #fff;
-            font-weight: 500;
-            cursor: pointer;
-        }
+    .history-list {
+      margin-top: 14px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
 
-        .add-btn {
-            background: var(--primary);
-            color: #ffffff;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 13px;
-            transition: background 0.2s;
-        }
+    /* Sections */
+    section {
+      padding: 44px 0;
+    }
 
-        .add-btn:hover {
-            background: var(--accent);
-            color: #000;
-        }
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
 
-        .cart-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #ffffff;
-            color: var(--text-dark);
-            padding: 15px 25px;
-            box-shadow: 0 -5px 25px rgba(0,0,0,0.15);
-            z-index: 1001;
-            border-top: 3px solid var(--accent);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+    .section-sub {
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
 
-        .cart-items-preview {
-            max-height: 100px;
-            overflow-y: auto;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 8px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
 
-        .cart-mini-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-            background: #f8f9fa;
-            padding: 6px 10px;
-            border-radius: 6px;
-        }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
 
-        .mini-controls {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
 
-        .mini-qty-btn {
-            background: #ddd;
-            border: none;
-            width: 20px;
-            height: 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+    .card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
 
-        .mini-del-btn {
-            background: none;
-            border: none;
-            color: #ff4757;
-            cursor: pointer;
-            font-size: 13px;
-        }
+    .steps-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      list-style: none;
+    }
 
-        .cart-footer-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .step-num {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.16);
+      color: var(--accent);
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+    }
 
-        .cart-info {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--primary);
-        }
+    /* FAQ */
+    details {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 10px;
+    }
 
-        .checkout-btn {
-            background: #25D366;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 14px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: transform 0.2s;
-        }
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
 
-        .checkout-btn:hover {
-            transform: scale(1.03);
-        }
+    details p {
+      color: var(--muted);
+      margin-top: 8px;
+      font-size: 0.93rem;
+    }
 
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            padding: 15px;
-        }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      text-align: center;
+    }
 
-        .modal-content {
-            background: #ffffff;
-            color: var(--text-dark);
-            width: 100%;
-            max-width: 480px;
-            border-radius: 12px;
-            padding: 25px;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
+    /* Modal */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
 
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
+    .modal-backdrop.open {
+      display: flex;
+    }
 
-        .modal-header h3 {
-            color: var(--primary);
-            font-family: 'Playfair Display', serif;
-        }
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      width: 100%;
+      max-width: 400px;
+      padding: 24px;
+    }
 
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: 22px;
-            cursor: pointer;
-            color: #777;
-        }
+    .modal h3 {
+      margin-bottom: 14px;
+    }
 
-        .payment-box {
-            background: #fdfbf7;
-            border: 1px dashed var(--accent);
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            margin-bottom: 15px;
-        }
+    .field {
+      margin-bottom: 12px;
+    }
 
-        .payment-box h4 {
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
+    .field label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
 
-        .form-group {
-            margin-bottom: 12px;
-        }
+    .field input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text);
+    }
 
-        .form-group label {
-            display: block;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 4px;
-            color: var(--primary);
-        }
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 16px;
+    }
 
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 13px;
-            outline: none;
-        }
-
-        .location-btn {
-            background: #007BFF;
-            color: white;
-            border: none;
-            padding: 7px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            cursor: pointer;
-            margin-top: 6px;
-            font-weight: 500;
-        }
-
-        .submit-order-btn {
-            background: #25D366;
-            color: white;
-            width: 100%;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-    </style>
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .grid-3, .steps-list {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="demo-banner">
+    Demo UI Template — Uses simulated play points only (no real-money transactions or payouts).
+  </div>
 
-    <div class="hero-header">
-        <div class="hero-top-info">
-            <span>RIVERSIDE 35, JAIPUR</span>
-            <span>Mr. Prmod Saini <br>📞 +91 9256466573</span>
+  <header>
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <span class="brand-badge">91</span>
+        <span>Club Portal</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#games">Games</a>
+        <a href="#features">Features</a>
+        <a href="#join">How to Join</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn btn-ghost" onclick="openModal('login')">Login</button>
+        <button class="btn btn-primary" onclick="openModal('signup')">Sign Up</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container hero">
+      <div>
+        <h1>Fast Mini-Games &amp; <span>Club Portal</span> Experience</h1>
+        <p>
+          Explore a responsive mobile-first gaming hub layout with quick round timers,
+          game categories, account sign-in flow, and clear player guidelines.
+        </p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" onclick="openModal('signup')">Create Demo Account</button>
+          <button class="btn btn-ghost" onclick="openModal('login')">Member Login</button>
         </div>
-        <div class="hero-brand-container">
-            <h1>Musafir Cafe</h1>
-            <p>An Unusual Love Story</p>
+        <div class="stats-row">
+          <div><strong>24/7</strong>Portal Access</div>
+          <div><strong>Mobile-First</strong>Responsive UI</div>
+          <div><strong id="balanceDisplay">1,000 PTS</strong>Demo Balance</div>
         </div>
-        <div class="hero-bottom-info">
-            <span>महँगी सी इस दुनिया में, सुकून का एक सस्ता सा पता</span>
-           
+      </div>
+
+      <div class="round-card">
+        <div class="round-top">
+          <strong>Win Go — Sample Round #<span id="roundId">2026112601</span></strong>
+          <span class="timer-pill" id="countdown">00:30</span>
         </div>
+        <p style="color: var(--muted); font-size: 0.88rem;">
+          Pick a color and demo stake, then click <strong>Draw Now</strong> or wait for the timer:
+        </p>
+
+        <div class="color-picks">
+          <button class="pick-btn pick-green selected" data-color="Green" onclick="selectColor(this)">Green</button>
+          <button class="pick-btn pick-violet" data-color="Violet" onclick="selectColor(this)">Violet</button>
+          <button class="pick-btn pick-red" data-color="Red" onclick="selectColor(this)">Red</button>
+        </div>
+
+        <div class="stake-row">
+          <button class="stake-chip active" onclick="selectStake(50, this)">50</button>
+          <button class="stake-chip" onclick="selectStake(100, this)">100</button>
+          <button class="stake-chip" onclick="selectStake(250, this)">250</button>
+        </div>
+
+        <button class="btn btn-primary" style="width: 100%;" onclick="runRound()">Draw Now</button>
+
+        <div class="history-list" id="historyList">
+          <div>No sample draws yet. Try a pick above.</div>
+        </div>
+      </div>
     </div>
 
-    <div class="welcome-section">
-        <h2>Welcome to Musafir Cafe</h2>
-        <p>Experience the finest blend of nature, authentic taste, and cozy mountainous vibes. Explore our delicious menu items below.</p>
-        
-        <div class="quick-nav-circles">
-            <div class="nav-circle-item" onclick="scrollToFirstCat()">
-                <div class="circle-img">
-                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=200&auto=format&fit=crop&q=60" alt="About">
-                </div>
-                <div class="circle-title">About Us</div>
-                <div class="circle-sub">Daily news of the taste world</div>
-            </div>
-            <div class="nav-circle-item" onclick="scrollToFirstCat()">
-                <div class="circle-img">
-                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&auto=format&fit=crop&q=60" alt="Menu">
-                </div>
-                <div class="circle-title">Menu</div>
-                <div class="circle-sub">Daily news of the taste world</div>
-            </div>
-            <div class="nav-circle-item" onclick="openCheckoutModal()">
-                <div class="circle-img">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&auto=format&fit=crop&q=60" alt="Locate">
-                </div>
-                <div class="circle-title">Locate Us</div>
-                <div class="circle-sub">Daily news of the taste world</div>
-            </div>
+    <section id="games">
+      <div class="container">
+        <h2 class="section-title">Popular Game Modes</h2>
+        <p class="section-sub">Structured game cards matching a fast-paced arcade and prediction hub.</p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Color &amp; Number Rounds</h3>
+            <p>Short countdown rounds where players choose colors or digits in quick intervals.</p>
+          </div>
+          <div class="card">
+            <h3>Multiplier Arcade</h3>
+            <p>Rising-curve multiplier rounds where timing when to lock in points matters.</p>
+          </div>
+          <div class="card">
+            <h3>Classic Table &amp; Card Modes</h3>
+            <p>Familiar card and wheel formats designed for quick sessions on mobile screens.</p>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <div class="category-nav" id="categoryNav"></div>
-
-    <div class="container" id="menu-container"></div>
-
-    <div class="cart-bar" id="cartBar" style="display: none;">
-        <div class="cart-items-preview" id="cartItemsPreview"></div>
-        <div class="cart-footer-row">
-            <div class="cart-info" id="cartSummaryText">0 Items | ₹0</div>
-            <button class="checkout-btn" onclick="openCheckoutModal()">
-                <i class="fab fa-whatsapp"></i> Order on WhatsApp
-            </button>
+    <section id="features">
+      <div class="container">
+        <h2 class="section-title">Platform Highlights</h2>
+        <p class="section-sub">Key layout blocks commonly featured on club gaming landing pages.</p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Lightweight Mobile Layout</h3>
+            <p>Clean cards, clear buttons, and fast load times across Android and desktop browsers.</p>
+          </div>
+          <div class="card">
+            <h3>Account &amp; Security</h3>
+            <p>Structured login and registration flows with reminders to keep credentials private.</p>
+          </div>
+          <div class="card">
+            <h3>Rules &amp; Limits First</h3>
+            <p>Encourages checking game rules, setting session limits, and playing purely for fun.</p>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <section id="join">
+      <div class="container">
+        <h2 class="section-title">How Users Get Started</h2>
+        <p class="section-sub">Standard 4-step onboarding flow shown on portal landing pages.</p>
+        <ol class="steps-list">
+          <li class="card">
+            <span class="step-num">Step 1</span>
+            <h3>Open the Portal</h3>
+            <p>Visit the web portal on your phone or desktop browser.</p>
+          </li>
+          <li class="card">
+            <span class="step-num">Step 2</span>
+            <h3>Register or Log In</h3>
+            <p>Enter your username/mobile details and set a strong password.</p>
+          </li>
+          <li class="card">
+            <span class="step-num">Step 3</span>
+            <h3>Review Game Rules</h3>
+            <p>Check round timers, multipliers, and session limits before starting.</p>
+          </li>
+          <li class="card">
+            <span class="step-num">Step 4</span>
+            <h3>Play &amp; Track</h3>
+            <p>Join a mode, monitor round results, and keep sessions balanced.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <details>
+          <summary>Is this an exact clone or a template?</summary>
+          <p>This is a clean front-end template inspired by that portal layout structure, using simulated points for safe local testing.</p>
+        </details>
+        <details>
+          <summary>What do I need to add for a real production app?</summary>
+          <p>You would need a secure backend server, database, authentication/OTP service, server-side round verification, and legal/compliance review for your region.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      91 Club Demo Layout • For educational &amp; UI prototyping purposes only.
     </div>
+  </footer>
 
-    <div class="modal" id="checkoutModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Payment & Order Details</h3>
-                <button class="close-btn" onclick="closeCheckoutModal()">×</button>
-            </div>
-
-            <div class="payment-box">
-                <h4>Scan & Pay via PhonePe / UPI</h4>
-                <p style="font-size: 11px; color: #666; margin-bottom: 5px;">Scan to pay the total amount</p>
-                <img alt="QR Code" src="scanner.jpeg" style="width: 150px; height: 150px; object-fit: contain; display: block; margin: 0 auto; background: #fff; padding: 5px; border-radius: 8px;">
-                <div style="margin-top: 8px;">
-                    <a href="scanner.jpeg" download="Scanner.jpeg" style="background-color: var(--primary); color: #fff; padding: 5px 12px; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: 600;">
-                        📥 Download QR Code
-                    </a>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label>Aapka Naam (Your Name) *</label>
-                <input type="text" id="customerName" placeholder="Apna naam likhiye">
-            </div>
-
-            <div class="form-group">
-                <label>Mobile Number *</label>
-                <input type="tel" id="customerPhone" placeholder="10-digit mobile number">
-            </div>
-
-            <div class="form-group">
-                <label>Transaction ID / UTR Number (Ya Screenshot Upload Karein)</label>
-                <input type="text" id="paymentRef" placeholder="UPI Reference / Transaction ID">
-            </div>
-
-            <div class="form-group">
-                <label>Payment Screenshot (Ya UTR Number Bharein)</label>
-                <input type="file" accept="image/*" id="paymentProofInput" style="padding: 5px; font-size: 11px;">
-            </div>
-
-            <div class="form-group">
-                <label>Table Number ya Address (Optional)</label>
-                <textarea id="customerAddress" rows="2" placeholder="Jaise: Table No. 4 ya Address (Optional)"></textarea>
-                <button class="location-btn" onclick="getLocation()"><i class="fas fa-map-marker-alt"></i> Share Live Location (Optional)</button>
-                <span id="locStatus" style="font-size: 11px; color: #25D366; margin-left: 6px; font-weight: 600;"></span>
-            </div>
-
-            <button class="submit-order-btn" onclick="sendWhatsAppOrder()">Submit Payment & Order 🚀</button>
+  <!-- Auth Modal -->
+  <div class="modal-backdrop" id="authModal">
+    <div class="modal">
+      <h3 id="modalTitle">Login</h3>
+      <form onsubmit="handleAuth(event)">
+        <div class="field">
+          <label for="userInput">Mobile or Username</label>
+          <input id="userInput" type="text" required placeholder="e.g. player_demo" />
         </div>
+        <div class="field">
+          <label for="passInput">Password</label>
+          <input id="passInput" type="password" required placeholder="••••••••" />
+        </div>
+        <p id="authStatus" style="font-size: 0.85rem; color: var(--accent); min-height: 20px;"></p>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" onclick="closeModal()">Close</button>
+          <button type="submit" class="btn btn-primary" id="modalSubmit">Continue</button>
+        </div>
+      </form>
     </div>
+  </div>
 
-    <script>
-        const cafePhone = "919256466573";
+  <script>
+    let balance = 1000;
+    let selectedColor = "Green";
+    let selectedStake = 50;
+    let secondsLeft = 30;
+    let roundCounter = 2026112601;
 
-        const menuData = {
-            "Chai (Tea)": [
-                {name: "Chai", price: 10, img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=500&auto=format&fit=crop&q=60"},
-                {name: "Kanch Kulhad Chai", price: 15, img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=500&auto=format&fit=crop&q=60"},
-                {name: "Mittri Kulhad Chai", price: 20, img: "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=500&auto=format&fit=crop&q=60"},
-                {name: "Lemon Tea", price: 20, img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&auto=format&fit=crop&q=60"}
-            ],
-            "Coffee": [
-                {name: "Hot Coffee", price: 25, img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&auto=format&fit=crop&q=60"},
-                {name: "Cold Coffee (Small)", price: 50, img: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=500&auto=format&fit=crop&q=60"},
-                {name: "Cold Coffee (Medium)", price: 70, img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500&auto=format&fit=crop&q=60"},
-                {name: "Cold Coffee (Large)", price: 90, img: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=500&auto=format&fit=crop&q=60"}
-            ],
-            "Juice": [
-                {name: "Papaya Juice", sizes: {"Small": 40, "Medium": 50, "Large": 60}, img: "https://images.unsplash.com/photo-1613478223719-2ab802602423?w=500&auto=format&fit=crop&q=60"},
-                {name: "Mango Juice", sizes: {"Small": 40, "Medium": 50, "Large": 60}, img: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=500&auto=format&fit=crop&q=60"},
-                {name: "Banana Juice", sizes: {"Small": 40, "Medium": 50, "Large": 60}, img: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=500&auto=format&fit=crop&q=60"},
-                {name: "Pineapple Juice", sizes: {"Small": 30, "Medium": 40, "Large": 50}, img: "https://images.unsplash.com/photo-1589734543486-50893080e461?w=500&auto=format&fit=crop&q=60"},
-                {name: "Mix Juice", sizes: {"Small": 50, "Medium": 60, "Large": 70}, img: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=500&auto=format&fit=crop&q=60"}
-            ],
-            "Shake": [
-                {name: "Papaya Shake", sizes: {"Small": 60, "Medium": 70, "Large": 80}, img: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=500&auto=format&fit=crop&q=60"},
-                {name: "Mango Shake", sizes: {"Small": 60, "Medium": 70, "Large": 80}, img: "https://images.unsplash.com/photo-1541658016709-82535e94bc69?w=500&auto=format&fit=crop&q=60"},
-                {name: "Banana Shake", sizes: {"Small": 60, "Medium": 70, "Large": 80}, img: "https://images.unsplash.com/photo-1577805947697-89e18249d767?w=500&auto=format&fit=crop&q=60"},
-                {name: "Mix Shake", sizes: {"Small": 70, "Medium": 80, "Large": 90}, img: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=500&auto=format&fit=crop&q=60"}
-            ],
-            "Burger & Meggie": [
-                {name: "Burger", price: 50, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&auto=format&fit=crop&q=60"},
-                {name: "Cheese Burger", price: 70, img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=500&auto=format&fit=crop&q=60"},
-                {name: "Paneer Burger", price: 70, img: "https://images.unsplash.com/photo-1550547660-d9450f859349?w=500&auto=format&fit=crop&q=60"},
-                {name: "Simple Meggie", price: 30, img: "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=500&auto=format&fit=crop&q=60"},
-                {name: "Veg Meggie", price: 50, img: "https://images.unsplash.com/photo-1608897013039-887f21d8c804?w=500&auto=format&fit=crop&q=60"},
-                {name: "Cheese Meggie", price: 60, img: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=500&auto=format&fit=crop&q=60"},
-                {name: "Paneer Meggie", price: 70, img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500&auto=format&fit=crop&q=60"},
-                {name: "Special Meggie", price: 80, img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&auto=format&fit=crop&q=60"}
-            ],
-            "Paties & Sandwich": [
-                {name: "Simple Paties", price: 20, img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&auto=format&fit=crop&q=60"},
-                {name: "Masala Paties", price: 30, img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&auto=format&fit=crop&q=60"},
-                {name: "Paneer Paties", price: 50, img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&auto=format&fit=crop&q=60"},
-                {name: "Grill Sandwich", price: 50, img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=500&auto=format&fit=crop&q=60"},
-                {name: "Cheese Sandwich", price: 70, img: "https://images.unsplash.com/photo-1553909489-cd47e0907980?w=500&auto=format&fit=crop&q=60"},
-                {name: "Paneer Sandwich", price: 70, img: "https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=500&auto=format&fit=crop&q=60"}
-            ],
-            "Pizza": [
-                {name: "Onion Pizza", price: 110, img: "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=500&auto=format&fit=crop&q=60"},
-                {name: "Corn Pizza", price: 130, img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60"},
-                {name: "Capsicam Pizza", price: 130, img: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&auto=format&fit=crop&q=60"},
-                {name: "Paneer Pizza", price: 150, img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&auto=format&fit=crop&q=60"},
-                {name: "Special Pizza", price: 170, img: "https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=500&auto=format&fit=crop&q=60"}
-            ],
-            "Pasta & Fries": [
-                {name: "Suji Pasta (Half)", price: 50, img: "https://images.unsplash.com/photo-1621996346565-e3d5d6281298?w=500&auto=format&fit=crop&q=60"},
-                {name: "Suji Pasta (Full)", price: 90, img: "https://images.unsplash.com/photo-1621996346565-e3d5d6281298?w=500&auto=format&fit=crop&q=60"},
-                {name: "Meda Pasta (Half)", price: 40, img: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=500&auto=format&fit=crop&q=60"},
-                {name: "Meda Pasta (Full)", price: 80, img: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=500&auto=format&fit=crop&q=60"},
-                {name: "French Fries (Half)", price: 40, img: "https://images.unsplash.com/photo-1576107232684-1279f3908591?w=500&auto=format&fit=crop&q=60"},
-                {name: "French Fries (Full)", price: 70, img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500&auto=format&fit=crop&q=60"}
-            ]
-        };
+    function updateBalance() {
+      document.getElementById("balanceDisplay").textContent = `${balance.toLocaleString()} PTS`;
+    }
 
-        let cart = [];
-        let userLocationCoords = "";
+    function selectColor(btn) {
+      document.querySelectorAll(".pick-btn").forEach(b => b.classList.remove("selected"));
+      btn.classList.add("selected");
+      selectedColor = btn.dataset.color;
+    }
 
-        function renderMenu() {
-            const container = document.getElementById('menu-container');
-            const navContainer = document.getElementById('categoryNav');
-            let html = '';
-            let navHtml = '';
+    function selectStake(amount, btn) {
+      document.querySelectorAll(".stake-chip").forEach(c => c.classList.remove("active"));
+      btn.classList.add("active");
+      selectedStake = amount;
+    }
 
-            let first = true;
-            for (let category in menuData) {
-                let catId = category.replace(/[^a-zA-Z]/g, '');
-                navHtml += `<button class="cat-tab ${first ? 'active' : ''}" onclick="scrollToCat('${catId}', this)">${category}</button>`;
-                first = false;
+    function runRound() {
+      if (balance < selectedStake) {
+        balance = 1000;
+      }
+      const colors = ["Green", "Violet", "Red"];
+      const outcome = colors[Math.floor(Math.random() * colors.length)];
+      const won = outcome === selectedColor;
 
-                html += `<div class="category-section" id="cat_${catId}">`;
-                html += `<div class="category-title">${category}</div>`;
-                html += `<div class="menu-grid">`;
+      if (won) {
+        const payout = selectedColor === "Violet" ? selectedStake * 3 : selectedStake * 2;
+        balance += payout - selectedStake;
+      } else {
+        balance -= selectedStake;
+      }
 
-                menuData[category].forEach((item, index) => {
-                    let priceDisplay = '';
-                    let sizeSelectHtml = '';
+      updateBalance();
 
-                    if (item.sizes) {
-                        let firstSize = Object.keys(item.sizes)[0];
-                        priceDisplay = `₹<span id="price_${catId}_${index}">${item.sizes[firstSize]}</span>`;
-                        sizeSelectHtml = `<select class="size-select" id="size_${catId}_${index}" onchange="updatePrice('${category}', ${index}, '${catId}')">`;
-                        for (let size in item.sizes) {
-                            sizeSelectHtml += `<option value="${size}">${size} (₹${item.sizes[size]})</option>`;
-                        }
-                        sizeSelectHtml += `</select>`;
-                    } else {
-                        priceDisplay = `₹${item.price}`;
-                    }
+      const historyEl = document.getElementById("historyList");
+      if (historyEl.firstElementChild?.textContent.includes("No sample draws")) {
+        historyEl.innerHTML = "";
+      }
 
-                    html += `
-                        <div class="menu-card">
-                            <div class="item-img-container">
-                                <img src="${item.img}" alt="${item.name}" loading="lazy">
-                            </div>
-                            <div class="item-details">
-                                <div class="item-info">
-                                    <h3>${item.name}</h3>
-                                    <div class="item-price" id="display_price_${catId}_${index}">${priceDisplay}</div>
-                                </div>
-                                <div class="item-actions">
-                                    ${sizeSelectHtml}
-                                    <button class="add-btn" onclick="addToCart('${category}', ${index}, '${catId}')">Add +</button>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                });
-                html += `</div></div>`;
-            }
-            navContainer.innerHTML = navHtml;
-            container.innerHTML = html;
-        }
+      const row = document.createElement("div");
+      row.textContent = `Round #${roundCounter}: Picked ${selectedColor} → Result ${outcome} (${won ? "Demo Win" : "No Match"})`;
+      historyEl.prepend(row);
+      while (historyEl.children.length > 4) {
+        historyEl.removeChild(historyEl.lastChild);
+      }
 
-        function scrollToCat(catId, btn) {
-            document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
-            btn.classList.add('active');
-            const element = document.getElementById(`cat_${catId}`);
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+      roundCounter++;
+      document.getElementById("roundId").textContent = roundCounter;
+      secondsLeft = 30;
+    }
 
-        function scrollToFirstCat() {
-            const firstTab = document.querySelector('.cat-tab');
-            if(firstTab) firstTab.click();
-        }
+    setInterval(() => {
+      secondsLeft--;
+      if (secondsLeft <= 0) {
+        runRound();
+      }
+      const mm = String(Math.floor(secondsLeft / 60)).padStart(2, "0");
+      const ss = String(secondsLeft % 60).padStart(2, "0");
+      document.getElementById("countdown").textContent = `${mm}:${ss}`;
+    }, 1000);
 
-        function updatePrice(category, index, catId) {
-            const item = menuData[category][index];
-            const select = document.getElementById(`size_${catId}_${index}`);
-            const selectedSize = select.value;
-            const priceDisplay = document.getElementById(`display_price_${catId}_${index}`);
-            priceDisplay.innerHTML = `₹${item.sizes[selectedSize]}`;
-        }
+    function openModal(mode) {
+      document.getElementById("modalTitle").textContent = mode === "login" ? "Member Login" : "Create Demo Account";
+      document.getElementById("modalSubmit").textContent = mode === "login" ? "Login" : "Sign Up";
+      document.getElementById("authStatus").textContent = "";
+      document.getElementById("authModal").classList.add("open");
+    }
 
-        function addToCart(category, index, catId) {
-            const item = menuData[category][index];
-            let name = item.name;
-            let price = item.price;
-            let size = '';
+    function closeModal() {
+      document.getElementById("authModal").classList.remove("open");
+    }
 
-            if (item.sizes) {
-                const select = document.getElementById(`size_${catId}_${index}`);
-                size = select.value;
-                price = item.sizes[size];
-                name += ` (${size})`;
-            }
-
-            const existing = cart.find(cartItem => cartItem.name === name);
-            if (existing) {
-                existing.qty += 1;
-            } else {
-                cart.push({ name, price, qty: 1 });
-            }
-            updateCartUI();
-        }
-
-        function changeQty(index, delta) {
-            cart[index].qty += delta;
-            if (cart[index].qty <= 0) {
-                cart.splice(index, 1);
-            }
-            updateCartUI();
-        }
-
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            const cartBar = document.getElementById('cartBar');
-            const cartSummaryText = document.getElementById('cartSummaryText');
-            const cartItemsPreview = document.getElementById('cartItemsPreview');
-
-            let totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-            let totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-
-            if (totalItems > 0) {
-                cartBar.style.display = 'flex';
-                cartSummaryText.innerText = `${totalItems} Items | Total: ₹${totalPrice}`;
-                
-                let previewHtml = '';
-                cart.forEach((item, index) => {
-                    previewHtml += `
-                        <div class="cart-mini-row">
-                            <span><b>${item.name}</b> (₹${item.price * item.qty})</span>
-                            <div class="mini-controls">
-                                <button class="mini-qty-btn" onclick="changeQty(${index}, -1)">-</button>
-                                <span style="font-size: 12px; font-weight: bold;">${item.qty}</span>
-                                <button class="mini-qty-btn" onclick="changeQty(${index}, 1)">+</button>
-                                <button class="mini-del-btn" onclick="removeFromCart(${index})" title="Remove"><i class="fas fa-trash"></i></button>
-                            </div>
-                        </div>
-                    `;
-                });
-                cartItemsPreview.innerHTML = previewHtml;
-            } else {
-                cartBar.style.display = 'none';
-                closeCheckoutModal();
-            }
-        }
-
-        function openCheckoutModal() {
-            if (cart.length === 0) {
-                alert("Pehle menu se kuch items select karke cart me add karein!");
-                return;
-            }
-            document.getElementById('checkoutModal').style.display = 'flex';
-        }
-
-        function closeCheckoutModal() {
-            document.getElementById('checkoutModal').style.display = 'none';
-        }
-
-        function getLocation() {
-            const status = document.getElementById('locStatus');
-            if (!navigator.geolocation) {
-                status.innerText = "Geolocation supported nahi hai";
-                return;
-            }
-            status.innerText = "Fetching location...";
-            navigator.geolocation.getCurrentPosition((position) => {
-                const lat = position.coords.latitude;
-                const lon = position.coords.longitude;
-                userLocationCoords = `https://maps.google.com/?q=${lat},${lon}`;
-                status.innerText = "Location added! ✅";
-            }, () => {
-                status.innerText = "Location fetch nahi ho payi";
-            });
-        }
-
-        function sendWhatsAppOrder() {
-            const name = document.getElementById('customerName').value.trim();
-            const phone = document.getElementById('customerPhone').value.trim();
-            const paymentRef = document.getElementById('paymentRef').value.trim();
-            const address = document.getElementById('customerAddress').value.trim();
-            const proofInput = document.getElementById('paymentProofInput');
-
-            if (!name) {
-                alert("Kripya apna naam darj karein!");
-                return;
-            }
-            if (!phone) {
-                alert("Kripya apna mobile number darj karein!");
-                return;
-            }
-            
-            const hasFile = proofInput.files && proofInput.files.length > 0;
-            if (!paymentRef && !hasFile) {
-                alert("Kripya ya toh Transaction ID / UTR Number bharein ya Payment Screenshot upload karein!");
-                return;
-            }
-
-            let orderText = `*Paid Order - Musafir Cafe*%0A%0A`;
-            orderText += `👤 *Name:* ${name}%0A`;
-            orderText += `📱 *Phone Number:* ${phone}%0A`;
-            orderText += `💳 *Transaction ID/UTR:* ${paymentRef || 'Not Provided'}%0A`;
-            if (hasFile) {
-                orderText += `🖼️ *Payment Screenshot:* [Attached/Selected by Customer]%0A`;
-            }
-            orderText += `📍 *Address/Table:* ${address || 'Not Provided (Optional)'}%0A`;
-            if (userLocationCoords) {
-                orderText += `🗺️ *Location Map:* ${userLocationCoords}%0A`;
-            }
-            orderText += `%0A🛍️ *Order Items:*%0A`;
-
-            let grandTotal = 0;
-            cart.forEach(item => {
-                let itemTotal = item.price * item.qty;
-                grandTotal += itemTotal;
-                orderText += `- ${item.name} x ${item.qty} = ₹${itemTotal}%0A`;
-            });
-
-            orderText += `%0A💰 *Grand Total Paid:* *₹${grandTotal}*`;
-
-            const whatsappUrl = `https://wa.me/${cafePhone}?text=${orderText}`;
-            window.open(whatsappUrl, '_blank');
-        }
-
-        window.onload = renderMenu;
-    </script>
+    function handleAuth(e) {
+      e.preventDefault();
+      const user = document.getElementById("userInput").value.trim();
+      document.getElementById("authStatus").textContent = `Demo session ready for "${user}".`;
+    }
+  </script>
 </body>
 </html>
