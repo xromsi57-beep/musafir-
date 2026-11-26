@@ -3,21 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>91 Club — Gaming Portal & Demo</title>
+  <title>91 Club — Member Login</title>
   <style>
     :root {
-      --bg: #0b0f19;
-      --surface: #131a2a;
-      --surface-2: #1b253b;
-      --text: #f3f6fc;
-      --muted: #9aa7bf;
-      --accent: #f59e0b;
-      --accent-hover: #d97706;
-      --green: #10b981;
-      --red: #ef4444;
-      --violet: #8b5cf6;
+      --bg: #0f131d;
+      --shell: #161c2a;
+      --card: #1e2638;
+      --input-bg: #252f45;
+      --primary: #f95959;
+      --primary-dark: #d93838;
+      --accent: #ff9a44;
+      --text: #f4f7fc;
+      --muted: #96a2b8;
       --border: rgba(255, 255, 255, 0.08);
-      --radius: 14px;
+      --success: #10b981;
     }
 
     * {
@@ -30,666 +29,472 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Notice Banner */
-    .demo-banner {
-      background: rgba(245, 158, 11, 0.14);
-      border-bottom: 1px solid rgba(245, 158, 11, 0.35);
-      color: #fde68a;
-      font-size: 0.85rem;
-      text-align: center;
-      padding: 8px 14px;
-    }
-
-    /* Navbar */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(11, 15, 25, 0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-inner {
+      min-height: 100vh;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-      gap: 16px;
+      justify-content: center;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      font-size: 1.25rem;
-      letter-spacing: 0.4px;
-    }
-
-    .brand-badge {
-      background: linear-gradient(135deg, var(--accent), #f97316);
-      color: #0b0f19;
-      padding: 4px 10px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .nav-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .btn {
-      border: none;
-      border-radius: 10px;
-      padding: 10px 16px;
-      font-weight: 600;
-      font-size: 0.92rem;
-      cursor: pointer;
-      transition: transform 0.12s ease, background 0.15s ease;
-    }
-
-    .btn:active {
-      transform: scale(0.98);
-    }
-
-    .btn-ghost {
-      background: var(--surface-2);
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .btn-ghost:hover {
-      background: #24314e;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #f97316);
-      color: #0b0f19;
-    }
-
-    .btn-primary:hover {
-      background: linear-gradient(135deg, var(--accent-hover), #ea580c);
-    }
-
-    /* Hero */
-    .hero {
-      padding: 56px 0 40px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.15;
-      margin-bottom: 14px;
-    }
-
-    .hero h1 span {
-      color: var(--accent);
-    }
-
-    .hero p {
-      color: var(--muted);
-      font-size: 1.02rem;
-      margin-bottom: 24px;
-      max-width: 58ch;
-    }
-
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 22px;
-    }
-
-    .stats-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .stats-row strong {
-      color: var(--text);
-      display: block;
-      font-size: 1.1rem;
-    }
-
-    /* Demo Round Box */
-    .round-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px;
-    }
-
-    .round-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-    }
-
-    .timer-pill {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      padding: 5px 12px;
-      border-radius: 999px;
-      font-variant-numeric: tabular-nums;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .color-picks {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin: 14px 0;
-    }
-
-    .pick-btn {
-      padding: 12px 8px;
-      border-radius: 10px;
-      border: 2px solid transparent;
-      font-weight: 700;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    .pick-green { background: var(--green); }
-    .pick-violet { background: var(--violet); }
-    .pick-red { background: var(--red); }
-
-    .pick-btn.selected {
-      border-color: #fff;
-      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
-    }
-
-    .stake-row {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-
-    .stake-chip {
-      flex: 1;
-      background: var(--surface-2);
-      color: var(--text);
-      border: 1px solid var(--border);
-      padding: 8px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    .stake-chip.active {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .history-list {
-      margin-top: 14px;
-      font-size: 0.85rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      padding-top: 12px;
+    /* Mobile-first centered app shell */
+    .app-shell {
+      width: 100%;
+      max-width: 430px;
+      background: var(--shell);
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
     }
 
-    /* Sections */
-    section {
-      padding: 44px 0;
+    /* Top red gradient banner */
+    .top-banner {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      padding: 18px 20px 28px;
+      color: #fff;
+      border-bottom-left-radius: 22px;
+      border-bottom-right-radius: 22px;
     }
 
-    .section-title {
-      font-size: 1.5rem;
-      margin-bottom: 8px;
-    }
-
-    .section-sub {
-      color: var(--muted);
-      margin-bottom: 24px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-    }
-
-    .card h3 {
-      margin-bottom: 8px;
-      font-size: 1.1rem;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .steps-list {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      list-style: none;
-    }
-
-    .step-num {
-      display: inline-block;
-      background: rgba(245, 158, 11, 0.16);
-      color: var(--accent);
-      font-weight: 700;
-      padding: 2px 10px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      margin-bottom: 8px;
-    }
-
-    /* FAQ */
-    details {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px 18px;
-      margin-bottom: 10px;
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    details p {
-      color: var(--muted);
-      margin-top: 8px;
-      font-size: 0.93rem;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 24px 0;
-      color: var(--muted);
-      font-size: 0.88rem;
-      text-align: center;
-    }
-
-    /* Modal */
-    .modal-backdrop {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 100;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-    }
-
-    .modal-backdrop.open {
+    .top-bar {
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
     }
 
-    .modal {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      width: 100%;
-      max-width: 400px;
-      padding: 24px;
+    .back-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      opacity: 0.92;
     }
 
-    .modal h3 {
-      margin-bottom: 14px;
+    .brand-pill {
+      background: rgba(0, 0, 0, 0.22);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
     }
 
-    .field {
-      margin-bottom: 12px;
-    }
-
-    .field label {
-      display: block;
-      font-size: 0.85rem;
-      color: var(--muted);
+    .top-banner h1 {
+      font-size: 1.45rem;
       margin-bottom: 4px;
     }
 
-    .field input {
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: 8px;
+    .top-banner p {
+      font-size: 0.84rem;
+      opacity: 0.9;
+    }
+
+    /* Mode Tabs */
+    .tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: -14px 20px 0;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 4px;
       border: 1px solid var(--border);
-      background: var(--surface-2);
+    }
+
+    .tab-btn {
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      padding: 10px;
+      border-radius: 9px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+    }
+
+    /* Form Area */
+    .form-wrap {
+      padding: 22px 20px 32px;
+      flex: 1;
+    }
+
+    .field-group {
+      margin-bottom: 16px;
+    }
+
+    .field-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 8px;
       color: var(--text);
     }
 
-    .modal-actions {
+    .input-row {
       display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-      margin-top: 16px;
+      align-items: center;
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      overflow: hidden;
     }
 
-    @media (max-width: 860px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-      .grid-3, .steps-list {
-        grid-template-columns: 1fr;
-      }
-      .nav-links {
-        display: none;
-      }
+    .input-row:focus-within {
+      border-color: var(--primary);
+    }
+
+    .country-select {
+      background: transparent;
+      color: var(--text);
+      border: none;
+      border-right: 1px solid var(--border);
+      padding: 13px 10px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      outline: none;
+    }
+
+    .country-select option {
+      background: var(--card);
+      color: var(--text);
+    }
+
+    .text-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: var(--text);
+      padding: 13px 14px;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .toggle-pass {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      padding: 0 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .options-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+    }
+
+    .checkbox-label input {
+      accent-color: var(--primary);
+      width: 15px;
+      height: 15px;
+    }
+
+    .link-btn {
+      background: none;
+      border: none;
+      color: var(--primary);
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-submit {
+      width: 100%;
+      border: none;
+      border-radius: 999px;
+      padding: 13px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(249, 89, 89, 0.3);
+      margin-bottom: 12px;
+    }
+
+    .btn-submit:active {
+      transform: scale(0.99);
+    }
+
+    .btn-secondary {
+      width: 100%;
+      border: 1px solid var(--primary);
+      border-radius: 999px;
+      padding: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .status-box {
+      margin-top: 14px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 0.86rem;
+      display: none;
+    }
+
+    .status-box.error {
+      display: block;
+      background: rgba(239, 68, 68, 0.14);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fca5a5;
+    }
+
+    .status-box.success {
+      display: block;
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #6ee7b7;
+    }
+
+    /* Quick bottom links */
+    .quick-footer {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .support-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .support-card strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 2px;
+      font-size: 0.88rem;
+    }
+
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div class="demo-banner">
-    Demo UI Template — Uses simulated play points only (no real-money transactions or payouts).
-  </div>
-
-  <header>
-    <div class="container nav-inner">
-      <a href="#" class="brand">
-        <span class="brand-badge">91</span>
-        <span>Club Portal</span>
-      </a>
-      <nav class="nav-links">
-        <a href="#games">Games</a>
-        <a href="#features">Features</a>
-        <a href="#join">How to Join</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <div class="nav-actions">
-        <button class="btn btn-ghost" onclick="openModal('login')">Login</button>
-        <button class="btn btn-primary" onclick="openModal('signup')">Sign Up</button>
+  <div class="app-shell">
+    <div class="top-banner">
+      <div class="top-bar">
+        <a href="index.html" class="back-link">&larr; Home</a>
+        <span class="brand-pill">91 CLUB</span>
       </div>
-    </div>
-  </header>
-
-  <main>
-    <div class="container hero">
-      <div>
-        <h1>Fast Mini-Games &amp; <span>Club Portal</span> Experience</h1>
-        <p>
-          Explore a responsive mobile-first gaming hub layout with quick round timers,
-          game categories, account sign-in flow, and clear player guidelines.
-        </p>
-        <div class="hero-cta">
-          <button class="btn btn-primary" onclick="openModal('signup')">Create Demo Account</button>
-          <button class="btn btn-ghost" onclick="openModal('login')">Member Login</button>
-        </div>
-        <div class="stats-row">
-          <div><strong>24/7</strong>Portal Access</div>
-          <div><strong>Mobile-First</strong>Responsive UI</div>
-          <div><strong id="balanceDisplay">1,000 PTS</strong>Demo Balance</div>
-        </div>
-      </div>
-
-      <div class="round-card">
-        <div class="round-top">
-          <strong>Win Go — Sample Round #<span id="roundId">2026112601</span></strong>
-          <span class="timer-pill" id="countdown">00:30</span>
-        </div>
-        <p style="color: var(--muted); font-size: 0.88rem;">
-          Pick a color and demo stake, then click <strong>Draw Now</strong> or wait for the timer:
-        </p>
-
-        <div class="color-picks">
-          <button class="pick-btn pick-green selected" data-color="Green" onclick="selectColor(this)">Green</button>
-          <button class="pick-btn pick-violet" data-color="Violet" onclick="selectColor(this)">Violet</button>
-          <button class="pick-btn pick-red" data-color="Red" onclick="selectColor(this)">Red</button>
-        </div>
-
-        <div class="stake-row">
-          <button class="stake-chip active" onclick="selectStake(50, this)">50</button>
-          <button class="stake-chip" onclick="selectStake(100, this)">100</button>
-          <button class="stake-chip" onclick="selectStake(250, this)">250</button>
-        </div>
-
-        <button class="btn btn-primary" style="width: 100%;" onclick="runRound()">Draw Now</button>
-
-        <div class="history-list" id="historyList">
-          <div>No sample draws yet. Try a pick above.</div>
-        </div>
-      </div>
+      <h1 id="bannerHeading">Log in</h1>
+      <p id="bannerSub">Sign in with your phone number and password</p>
     </div>
 
-    <section id="games">
-      <div class="container">
-        <h2 class="section-title">Popular Game Modes</h2>
-        <p class="section-sub">Structured game cards matching a fast-paced arcade and prediction hub.</p>
-        <div class="grid-3">
-          <div class="card">
-            <h3>Color &amp; Number Rounds</h3>
-            <p>Short countdown rounds where players choose colors or digits in quick intervals.</p>
-          </div>
-          <div class="card">
-            <h3>Multiplier Arcade</h3>
-            <p>Rising-curve multiplier rounds where timing when to lock in points matters.</p>
-          </div>
-          <div class="card">
-            <h3>Classic Table &amp; Card Modes</h3>
-            <p>Familiar card and wheel formats designed for quick sessions on mobile screens.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="features">
-      <div class="container">
-        <h2 class="section-title">Platform Highlights</h2>
-        <p class="section-sub">Key layout blocks commonly featured on club gaming landing pages.</p>
-        <div class="grid-3">
-          <div class="card">
-            <h3>Lightweight Mobile Layout</h3>
-            <p>Clean cards, clear buttons, and fast load times across Android and desktop browsers.</p>
-          </div>
-          <div class="card">
-            <h3>Account &amp; Security</h3>
-            <p>Structured login and registration flows with reminders to keep credentials private.</p>
-          </div>
-          <div class="card">
-            <h3>Rules &amp; Limits First</h3>
-            <p>Encourages checking game rules, setting session limits, and playing purely for fun.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="join">
-      <div class="container">
-        <h2 class="section-title">How Users Get Started</h2>
-        <p class="section-sub">Standard 4-step onboarding flow shown on portal landing pages.</p>
-        <ol class="steps-list">
-          <li class="card">
-            <span class="step-num">Step 1</span>
-            <h3>Open the Portal</h3>
-            <p>Visit the web portal on your phone or desktop browser.</p>
-          </li>
-          <li class="card">
-            <span class="step-num">Step 2</span>
-            <h3>Register or Log In</h3>
-            <p>Enter your username/mobile details and set a strong password.</p>
-          </li>
-          <li class="card">
-            <span class="step-num">Step 3</span>
-            <h3>Review Game Rules</h3>
-            <p>Check round timers, multipliers, and session limits before starting.</p>
-          </li>
-          <li class="card">
-            <span class="step-num">Step 4</span>
-            <h3>Play &amp; Track</h3>
-            <p>Join a mode, monitor round results, and keep sessions balanced.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="faq">
-      <div class="container">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <details>
-          <summary>Is this an exact clone or a template?</summary>
-          <p>This is a clean front-end template inspired by that portal layout structure, using simulated points for safe local testing.</p>
-        </details>
-        <details>
-          <summary>What do I need to add for a real production app?</summary>
-          <p>You would need a secure backend server, database, authentication/OTP service, server-side round verification, and legal/compliance review for your region.</p>
-        </details>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      91 Club Demo Layout • For educational &amp; UI prototyping purposes only.
+    <div class="tabs">
+      <button type="button" class="tab-btn active" id="tabLogin" onclick="switchMode('login')">Phone Login</button>
+      <button type="button" class="tab-btn" id="tabRegister" onclick="switchMode('register')">Register</button>
     </div>
-  </footer>
 
-  <!-- Auth Modal -->
-  <div class="modal-backdrop" id="authModal">
-    <div class="modal">
-      <h3 id="modalTitle">Login</h3>
-      <form onsubmit="handleAuth(event)">
-        <div class="field">
-          <label for="userInput">Mobile or Username</label>
-          <input id="userInput" type="text" required placeholder="e.g. player_demo" />
+    <div class="form-wrap">
+      <form id="authForm" onsubmit="submitForm(event)">
+        <div class="field-group">
+          <label class="field-label" for="phoneInput">Phone Number</label>
+          <div class="input-row">
+            <select class="country-select" id="countryCode" aria-label="Country code">
+              <option value="+91">+91</option>
+              <option value="+1">+1</option>
+              <option value="+44">+44</option>
+              <option value="+971">+971</option>
+            </select>
+            <input
+              class="text-input"
+              id="phoneInput"
+              type="tel"
+              inputmode="numeric"
+              placeholder="Enter phone number"
+              required
+            />
+          </div>
         </div>
-        <div class="field">
-          <label for="passInput">Password</label>
-          <input id="passInput" type="password" required placeholder="••••••••" />
+
+        <div class="field-group">
+          <label class="field-label" for="passwordInput">Password</label>
+          <div class="input-row">
+            <input
+              class="text-input"
+              id="passwordInput"
+              type="password"
+              placeholder="Enter password (min 6 chars)"
+              required
+            />
+            <button type="button" class="toggle-pass" onclick="togglePassword('passwordInput', this)">Show</button>
+          </div>
         </div>
-        <p id="authStatus" style="font-size: 0.85rem; color: var(--accent); min-height: 20px;"></p>
-        <div class="modal-actions">
-          <button type="button" class="btn btn-ghost" onclick="closeModal()">Close</button>
-          <button type="submit" class="btn btn-primary" id="modalSubmit">Continue</button>
+
+        <!-- Register-only fields -->
+        <div id="registerFields" class="hidden">
+          <div class="field-group">
+            <label class="field-label" for="confirmInput">Confirm Password</label>
+            <div class="input-row">
+              <input
+                class="text-input"
+                id="confirmInput"
+                type="password"
+                placeholder="Re-enter password"
+              />
+              <button type="button" class="toggle-pass" onclick="togglePassword('confirmInput', this)">Show</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="inviteInput">Invite Code (Optional)</label>
+            <div class="input-row">
+              <input
+                class="text-input"
+                id="inviteInput"
+                type="text"
+                placeholder="Enter referral code if available"
+              />
+            </div>
+          </div>
         </div>
+
+        <div class="options-row">
+          <label class="checkbox-label">
+            <input type="checkbox" id="rememberCheck" checked />
+            <span id="checkText">Remember password</span>
+          </label>
+          <button type="button" class="link-btn" onclick="showResetHint()">Forgot password?</button>
+        </div>
+
+        <button type="submit" class="btn-submit" id="primaryBtn">Log in</button>
+        <button type="button" class="btn-secondary" id="secondaryBtn" onclick="toggleMode()">Register</button>
+
+        <div class="status-box" id="statusBox"></div>
       </form>
+
+      <div class="quick-footer">
+        <div class="support-card" onclick="showResetHint()">
+          <strong>Forgot Password</strong>
+          Reset via phone verification
+        </div>
+        <div class="support-card" onclick="showSupportHint()">
+          <strong>24/7 Support</strong>
+          Customer service center
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
-    let balance = 1000;
-    let selectedColor = "Green";
-    let selectedStake = 50;
-    let secondsLeft = 30;
-    let roundCounter = 2026112601;
+    let currentMode = "login";
 
-    function updateBalance() {
-      document.getElementById("balanceDisplay").textContent = `${balance.toLocaleString()} PTS`;
+    function switchMode(mode) {
+      currentMode = mode;
+      const isLogin = mode === "login";
+
+      document.getElementById("tabLogin").classList.toggle("active", isLogin);
+      document.getElementById("tabRegister").classList.toggle("active", !isLogin);
+      document.getElementById("registerFields").classList.toggle("hidden", isLogin);
+
+      document.getElementById("bannerHeading").textContent = isLogin ? "Log in" : "Register";
+      document.getElementById("bannerSub").textContent = isLogin
+        ? "Sign in with your phone number and password"
+        : "Create a new member account with your phone number";
+
+      document.getElementById("checkText").textContent = isLogin
+        ? "Remember password"
+        : "I agree to the User Agreement";
+
+      document.getElementById("primaryBtn").textContent = isLogin ? "Log in" : "Register";
+      document.getElementById("secondaryBtn").textContent = isLogin ? "Register" : "Back to Log in";
+      clearStatus();
     }
 
-    function selectColor(btn) {
-      document.querySelectorAll(".pick-btn").forEach(b => b.classList.remove("selected"));
-      btn.classList.add("selected");
-      selectedColor = btn.dataset.color;
+    function toggleMode() {
+      switchMode(currentMode === "login" ? "register" : "login");
     }
 
-    function selectStake(amount, btn) {
-      document.querySelectorAll(".stake-chip").forEach(c => c.classList.remove("active"));
-      btn.classList.add("active");
-      selectedStake = amount;
+    function togglePassword(inputId, btn) {
+      const input = document.getElementById(inputId);
+      const isHidden = input.type === "password";
+      input.type = isHidden ? "text" : "password";
+      btn.textContent = isHidden ? "Hide" : "Show";
     }
 
-    function runRound() {
-      if (balance < selectedStake) {
-        balance = 1000;
+    function setStatus(message, type) {
+      const box = document.getElementById("statusBox");
+      box.textContent = message;
+      box.className = `status-box ${type}`;
+    }
+
+    function clearStatus() {
+      const box = document.getElementById("statusBox");
+      box.className = "status-box";
+      box.textContent = "";
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+      const code = document.getElementById("countryCode").value;
+      const phone = document.getElementById("phoneInput").value.trim().replace(/\s+/g, "");
+      const pass = document.getElementById("passwordInput").value;
+
+      if (!/^\d{7,15}$/.test(phone)) {
+        setStatus("Enter a valid numeric phone number (7–15 digits).", "error");
+        return;
       }
-      const colors = ["Green", "Violet", "Red"];
-      const outcome = colors[Math.floor(Math.random() * colors.length)];
-      const won = outcome === selectedColor;
 
-      if (won) {
-        const payout = selectedColor === "Violet" ? selectedStake * 3 : selectedStake * 2;
-        balance += payout - selectedStake;
+      if (pass.length < 6) {
+        setStatus("Password must be at least 6 characters long.", "error");
+        return;
+      }
+
+      if (currentMode === "register") {
+        const confirmPass = document.getElementById("confirmInput").value;
+        const agreed = document.getElementById("rememberCheck").checked;
+        if (pass !== confirmPass) {
+          setStatus("Passwords do not match.", "error");
+          return;
+        }
+        if (!agreed) {
+          setStatus("Please agree to the User Agreement to continue.", "error");
+          return;
+        }
+        setStatus(`Demo registration complete for ${code} ${phone}.`, "success");
       } else {
-        balance -= selectedStake;
+        setStatus(`Demo login validated for ${code} ${phone}. Redirecting to portal...`, "success");
       }
-
-      updateBalance();
-
-      const historyEl = document.getElementById("historyList");
-      if (historyEl.firstElementChild?.textContent.includes("No sample draws")) {
-        historyEl.innerHTML = "";
-      }
-
-      const row = document.createElement("div");
-      row.textContent = `Round #${roundCounter}: Picked ${selectedColor} → Result ${outcome} (${won ? "Demo Win" : "No Match"})`;
-      historyEl.prepend(row);
-      while (historyEl.children.length > 4) {
-        historyEl.removeChild(historyEl.lastChild);
-      }
-
-      roundCounter++;
-      document.getElementById("roundId").textContent = roundCounter;
-      secondsLeft = 30;
     }
 
-    setInterval(() => {
-      secondsLeft--;
-      if (secondsLeft <= 0) {
-        runRound();
-      }
-      const mm = String(Math.floor(secondsLeft / 60)).padStart(2, "0");
-      const ss = String(secondsLeft % 60).padStart(2, "0");
-      document.getElementById("countdown").textContent = `${mm}:${ss}`;
-    }, 1000);
-
-    function openModal(mode) {
-      document.getElementById("modalTitle").textContent = mode === "login" ? "Member Login" : "Create Demo Account";
-      document.getElementById("modalSubmit").textContent = mode === "login" ? "Login" : "Sign Up";
-      document.getElementById("authStatus").textContent = "";
-      document.getElementById("authModal").classList.add("open");
+    function showResetHint() {
+      setStatus("Password reset requires backend OTP verification in production.", "success");
     }
 
-    function closeModal() {
-      document.getElementById("authModal").classList.remove("open");
-    }
-
-    function handleAuth(e) {
-      e.preventDefault();
-      const user = document.getElementById("userInput").value.trim();
-      document.getElementById("authStatus").textContent = `Demo session ready for "${user}".`;
+    function showSupportHint() {
+      setStatus("Connect this card to your live-chat widget or support ticket URL.", "success");
     }
   </script>
 </body>
